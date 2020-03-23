@@ -41,3 +41,37 @@ promise.then(function(data){
 }).catch(function(erdata){
 	console.log(erdata);
 });
+
+//fetch() API is promise-based API for making HTTPRequest
+
+//in XMLHttpRequest using XMLHttpRequest() object ,in fetch browser come
+//with global fetch() function that can use to make request
+//fetch get methosd;
+fetch("https://jsonplaceholder.typicode.com/posts/1")
+.then(function(response){
+	console.log(response);
+	var data= response.json();
+	return data;
+})
+.then(function(data){
+	console.log(data);
+});
+//post methode
+
+const name={
+	title:"Life is very short namba always be happa"
+};
+
+fetch("https://jsonplaceholder.typicode.com/todos",{
+	method:"POST",
+	body:JSON.stringify(name),
+	headers:{
+		"Content-type":"application/json; charset=UTF-8"
+	}
+})
+.then(function(response){
+	return response.json();
+})
+.then(function(data){
+	console.log(data);
+});
